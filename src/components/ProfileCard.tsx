@@ -1,6 +1,15 @@
-export default function ProfileCard() {
+export default function ProfileCard({
+  setShowProfile,
+}: {
+  setShowProfile: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
-    <section className="w-[300px] border border-black/10 p-3 rounded-xl cursor-pointer">
+    <section
+      className="w-[300px] border border-black/10 p-3 rounded-xl cursor-pointer"
+      onClick={() => {
+        setShowProfile(true);
+      }}
+    >
       <div className="h-[280px] mb-2">
         <img
           src="https://adplist-bucket.s3.amazonaws.com/media/profile_photos/91365a016ded4746bbe95d1ab5bf0e0edYzCG.webp"
