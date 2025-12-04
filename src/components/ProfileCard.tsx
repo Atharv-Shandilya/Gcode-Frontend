@@ -1,13 +1,13 @@
-export default function ProfileCard({
-  setShowProfile,
-}: {
-  setShowProfile: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+import { useStore } from "zustand";
+import GlobalStore from "../store/GlobalStore";
+
+export default function ProfileCard({}: {}) {
+  const setShowProfile = GlobalStore((state) => state.setShowProfile);
   return (
     <section
       className="w-[300px] border border-black/10 p-3 rounded-xl cursor-pointer"
       onClick={() => {
-        setShowProfile(true);
+        setShowProfile();
       }}
     >
       <div className="h-[280px] mb-2">
