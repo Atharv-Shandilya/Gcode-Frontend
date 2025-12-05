@@ -1,6 +1,9 @@
 import { create } from "zustand";
 
 interface GlobalStoreI {
+  page: number;
+  setPage: (pageNo: number) => void;
+
   showProfile: boolean;
   setShowProfile: () => void;
 
@@ -22,6 +25,10 @@ interface GlobalStoreI {
 }
 
 export default create<GlobalStoreI>()((set, get) => ({
+  page: 1,
+  setPage: (pageNo) => {
+    set((state) => ({ ...state, page: pageNo }));
+  },
   showProfile: false,
   setShowProfile: () => {
     set((state) => ({ ...state, showProfile: !state.showProfile }));
